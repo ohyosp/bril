@@ -1,0 +1,12 @@
+@main {
+.first:
+  jmp .second;
+.second:
+.third:
+  b: bool = const true;
+  br b .fourth .fifth;
+.fourth:
+  print b;
+.fifth:
+  ret;
+}
