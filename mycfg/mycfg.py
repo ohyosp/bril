@@ -112,8 +112,8 @@ Input: a CFG
 Output: creates a graphviz Graph of the CFG
  - Branches labeled with predicate (T/F)
 """
-def create_graphviz(cfg):
-    dot = graphviz.Digraph('cfg')
+def create_graphviz(function_name, cfg):
+    dot = graphviz.Digraph(function_name)
     for label in cfg.keys():
         dot.node(str(label))
     dot.node(str(('TERM',)))
@@ -134,4 +134,4 @@ if __name__ == "__main__":
         basic_blocks = get_basic_blocks(function['instrs'])
         label_block_map = labels2blocks(basic_blocks)
         cfg = create_cfg(label_block_map)
-        create_graphviz(cfg)
+        create_graphviz(function['name'], cfg)
